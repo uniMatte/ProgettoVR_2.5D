@@ -1,0 +1,39 @@
+{
+  "name": "com.weart.sdk",
+  "displayName": "WEART SDK",
+  "author": {
+    "name": "WEART Srl",
+    "email" : "support@weart.it",
+    "url": "http:\\www.weart.it"
+  },
+  "version": "2.2.0",
+  "unity": "2022.3",
+  "description": "WEART SDK - 2.2.0 STL (Android and PC) Supporting TouchDIVER and TouchDIVER Pro",
+  "documentationUrl": "https://weart.it/docs/sdkunity/2.2.0/",
+  "keywords": [
+    "WEART",
+    "Unity"
+  ],
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+  },
+  "category": "Unity",
+  "samples": [
+    {
+      "displayName": "Simple Temperature",
+      "description": "This sample contains a very basic scene with one Touchable Cube and one finger Haptic Object for testing actuation",
+      "path": "Samples~/SimpleTemperature"
+    },
+    {
+      "displayName": "Sample Demo",
+      "description": "This sample contains a ready to use demo with multiple interactions",
+      "path": "Samples~/SampleDemo"
+    },
+    {
+      "displayName": "XRInteraction Sample Demo",
+      "description": "This sample contains a ready to use demo featuring various interactions that showcase the Unity XR Interaction grasp system",
+      "path": "Samples~/XRInteractionSampleDemo"
+    }
+  ],
+  "type": "library"
+}
