@@ -16,6 +16,9 @@ namespace WeArt.Components
         [SerializeField]
         internal ActuationPoint _actuationPoint = ActuationPoint.Thumb;
 
+        [SerializeField]
+        internal bool _ignoreTracking = false;
+
         private bool _isGrasping;
         private bool _isBlocked;
         private float _blockedClosureValue;
@@ -110,6 +113,11 @@ namespace WeArt.Components
             client.OnMessageResetHandClosure += ResetHandClosure;
         }
 
+        public void SetIgnoreClosure(bool pValue)
+        {
+            _ignoreTracking = pValue;
+        }
+
         private void OnEnable()
         {
             Init();
@@ -136,6 +144,13 @@ namespace WeArt.Components
 
             if (message is TrackingMessage trackingMessage)
             {
+                if(_ignoreTracking)
+                {
+                    Closure = new Closure() { Value = 0f };
+                    Abduction = new Abduction() { Value = 0.15f};
+                    return;
+                }
+
                 Closure = trackingMessage.GetClosure(HandSide, ActuationPoint);
                 Abduction = trackingMessage.GetAbduction(HandSide, ActuationPoint);
                 return;
@@ -144,6 +159,13 @@ namespace WeArt.Components
             if (message is TrackingMessageG2 trackingMessageG2)
             {
                 if (trackingMessageG2.HandSide != _handSide) return;
+
+                if (_ignoreTracking)
+                {
+                    Closure = new Closure() { Value = 0f };
+                    Abduction = new Abduction() { Value = 0.15f };
+                    return;
+                }
 
                 ThimbleData thimbleData = GetThimbleData(trackingMessageG2);
 

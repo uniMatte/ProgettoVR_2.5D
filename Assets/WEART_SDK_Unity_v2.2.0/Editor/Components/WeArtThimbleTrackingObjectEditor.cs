@@ -48,6 +48,17 @@ namespace WeArt.UnityEditor
                 editor.Add(propertyField);
             }
 
+            // Stop Tracking
+            {
+                var property = serializedObject.FindProperty(nameof(WeArtThimbleTrackingObject._ignoreTracking));
+                var propertyField = new PropertyField(property)
+                {
+                    tooltip = "Enable to ignore closure and abduction"
+                };
+                editor.Add(propertyField);
+            }
+
+
 
             if (EditorApplication.isPlaying)
             {

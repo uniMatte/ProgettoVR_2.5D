@@ -143,6 +143,15 @@ namespace WeArt.UnityEditor
                 new Vector3(-0.03f, -0.07f, 0.0f),
                 new Vector3(73.8f, -8.4f, -81.8f)
             )}
+            ,
+            { "TDPro/ViveTracker/Right", (
+                new Vector3(-0.038f, -0.326f, -0.767f),
+                new Vector3(72.856f, 120.368f, 98.695f)
+            )},
+            { "TDPro/ViveTracker/Left", (
+                new Vector3(0.052f, -0.297f, -0.836f),
+                new Vector3(106.231f, -292.784f, -269.596f)
+            )}
         };
 
 

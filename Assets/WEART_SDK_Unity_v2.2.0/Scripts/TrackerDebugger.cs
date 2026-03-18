@@ -1,14 +1,22 @@
 using UnityEngine;
 using Valve.VR;
 using System.Text;
+using System.Collections.Generic;
 
 public class TrackerDebugger : MonoBehaviour
 {
     private CVRSystem vrSystem;
     private TrackedDevicePose_t[] poses;
+    public bool ShowDebugObjects = false;
+    public List<Renderer> renderersToDisable;
 
     void Start()
     {
+        foreach (var r in renderersToDisable)
+        {
+            r.enabled = ShowDebugObjects;
+        }
+
         EVRInitError initError = EVRInitError.None;
         vrSystem = OpenVR.Init(ref initError, EVRApplicationType.VRApplication_Other);
 
