@@ -1,6 +1,7 @@
 using UnityEngine;
 using Valve.VR;
 using System.Text;
+using WeArt.Core;
 
 public class ViveTrackerManager : MonoBehaviour
 {
@@ -47,10 +48,10 @@ public class ViveTrackerManager : MonoBehaviour
         vrSystem.GetDeviceToAbsoluteTrackingPose(trackingOrigin, 0, poses);
 
         if (leftIndex >= 0)
-            ApplyPose(leftIndex, leftTrackerTarget);
+            ApplyPose(leftIndex, leftTrackerTarget, HandSide.Left);
 
         if (rightIndex >= 0)
-            ApplyPose(rightIndex, rightTrackerTarget);
+            ApplyPose(rightIndex, rightTrackerTarget, HandSide.Right);
     }
 
     [ContextMenu("Refresh Tracker Assignments")]
@@ -79,7 +80,7 @@ public class ViveTrackerManager : MonoBehaviour
         Debug.Log($"Left Vive tracker index: {leftIndex} | Right Vive tracker index: {rightIndex}");
     }
 
-    private void ApplyPose(int deviceIndex, Transform target)
+    private void ApplyPose(int deviceIndex, Transform target, HandSide handSide)
     {
         if (target == null)
             return;
@@ -111,6 +112,11 @@ public class ViveTrackerManager : MonoBehaviour
         {
             target.localPosition = trackingRoot.InverseTransformPoint(worldPosition);
             target.localRotation = Quaternion.Inverse(trackingRoot.rotation) * worldRotation;
+            if(handSide == HandSide.Left)
+            {
+                target.rotation = target.rotation * Quaternion.Euler(0,0,180);
+            }
+
         }
         else
         {

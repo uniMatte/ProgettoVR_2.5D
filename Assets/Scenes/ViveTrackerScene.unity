@@ -1268,8 +1268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   calibrationHandSide: 1
   freezeFingersClosure: 1
-  allowOnlyLateralRotation: 1
-  freezeHeight: 1
+  allowOnlyLateralRotation: 0
+  freezeHeight: 0
   freezeAllRotation: 0
   RightViveTracker: {fileID: 1473429866}
   RightViveTrackerTarget: {fileID: 1204437048}
@@ -1318,7 +1318,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346546421}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 190be9a6440a5914db0fc8f47c3d301b, type: 3}
   m_Name: 

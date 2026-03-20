@@ -48,7 +48,6 @@ public class ViveTrackerCalibrationManager : MonoBehaviour
 
     void Update()
     {
-        
         LookAtLateralDirection();
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -104,13 +103,11 @@ public class ViveTrackerCalibrationManager : MonoBehaviour
     void LookAtLateralDirection()
     {
         RightViveTrackerTransformation.position = RightViveTracker.position;
-
         _translateVector = RightViveTrackerTransformation.position + RightViveTracker.up;
         _translateVector.y = RightViveTrackerTransformation.position.y;
         RightViveTrackerTransformation.LookAt(_translateVector, Vector3.up);
 
         LeftViveTrackerTransformation.position = LeftViveTracker.position;
-
         _translateVector = LeftViveTrackerTransformation.position + LeftViveTracker.up;
         _translateVector.y = LeftViveTrackerTransformation.position.y;
         LeftViveTrackerTransformation.LookAt(_translateVector, Vector3.up);
